@@ -15,7 +15,7 @@ public interface LinkProvider {
      * @param <T> The entity type.
      * @return a partial link, missing the relation attribute.
      */
-    <T extends LinkedEntity<?>> PartialLink getResourceListLink(Class<T> entityClass, Object... pathParameters);
+    <T extends LinkedEntity<?>> PartialLink getResourceListLink(Class<T> entityClass, String... pathParameters);
 
     /**
      * Return a link to a single resource.
@@ -26,5 +26,5 @@ public interface LinkProvider {
      * @param <T> The entity type.
      * @return a partial link, missing the relation attribute.
      */
-    <T extends LinkedEntity<?>> PartialLink getResourceLink(Class<T> entityClass, Object id, Object... pathParameters);
+    <T extends LinkedEntity<?>> PartialLink getResourceLink(Class<T> entityClass, String id, String... pathParameters);
 }
