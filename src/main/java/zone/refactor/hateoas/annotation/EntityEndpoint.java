@@ -1,4 +1,4 @@
-package at.pasztor.hateoas.annotation;
+package zone.refactor.hateoas.annotation;
 
 import java.lang.annotation.*;
 

@@ -1,21 +1,13 @@
-package at.pasztor.hateoas.provider;
+package zone.refactor.hateoas.provider;
 
-import at.pasztor.hateoas.annotation.EntityEndpoint;
-import at.pasztor.hateoas.annotation.ListingEndpoint;
-import at.pasztor.hateoas.entity.LinkedEntity;
-import at.pasztor.hateoas.entity.PartialLink;
+import zone.refactor.hateoas.entity.LinkedEntity;
+import zone.refactor.hateoas.entity.PartialLink;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.context.annotation.RequestScope;
-import org.springframework.web.method.HandlerMethod;
-import org.springframework.web.servlet.mvc.method.RequestMappingInfo;
-import org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping;
 
 import javax.servlet.http.HttpServletRequest;
 import java.lang.reflect.Array;
-import java.lang.reflect.Method;
-import java.util.HashMap;
 import java.util.Map;
 
 @Service

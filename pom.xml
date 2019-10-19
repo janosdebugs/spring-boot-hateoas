@@ -4,7 +4,7 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
 
-    <groupId>at.pasztor</groupId>
+    <groupId>zone.refactor</groupId>
     <artifactId>hateoas</artifactId>
     <version>1.0-SNAPSHOT</version>
 
@@ -21,11 +21,19 @@
     </parent>
 
     <dependencies>
+        <!-- region Spring -->
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-web</artifactId>
-            <version>2.1.6.RELEASE</version>
         </dependency>
+        <!-- endregion -->
+
+        <!-- region Jackson -->
+        <dependency>
+            <groupId>com.fasterxml.jackson.core</groupId>
+            <artifactId>jackson-annotations</artifactId>
+        </dependency>
+        <!-- endregion -->
 
         <!-- region Swagger -->
         <dependency>
@@ -40,6 +48,7 @@
             <groupId>junit</groupId>
             <artifactId>junit</artifactId>
             <version>4.12</version>
+            <scope>test</scope>
         </dependency>
         <!-- endregion -->
     </dependencies>

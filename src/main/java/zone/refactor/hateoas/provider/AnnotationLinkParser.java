@@ -1,7 +1,7 @@
-package at.pasztor.hateoas.provider;
+package zone.refactor.hateoas.provider;
 
-import at.pasztor.hateoas.annotation.EntityEndpoint;
-import at.pasztor.hateoas.annotation.ListingEndpoint;
+import zone.refactor.hateoas.annotation.EntityEndpoint;
+import zone.refactor.hateoas.annotation.ListingEndpoint;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.web.bind.annotation.RequestMapping;

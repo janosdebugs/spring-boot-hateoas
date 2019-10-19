@@ -1,4 +1,4 @@
-package at.pasztor.hateoas.entity;
+package zone.refactor.hateoas.entity;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 import io.swagger.annotations.ApiModelProperty;
@@ -9,6 +9,7 @@ import io.swagger.annotations.ApiModelProperty;
  *                  the embedding object.
  */
 public class LinkedEntity<LINKTYPE extends Entity> extends Entity {
+    @SuppressWarnings("WeakerAccess")
     @ApiModelProperty(name = "_links", required = true, position = 999)
     @JsonProperty(value = "_links", required = true, index = 999)
     public final LINKTYPE links;

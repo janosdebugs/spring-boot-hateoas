@@ -1,4 +1,4 @@
-package at.pasztor.hateoas.provider;
+package zone.refactor.hateoas.provider;
 
 import org.junit.Test;
 

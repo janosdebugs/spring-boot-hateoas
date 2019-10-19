@@ -1,9 +1,10 @@
-package at.pasztor.hateoas.entity;
+package zone.refactor.hateoas.entity;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 import io.swagger.annotations.ApiModelProperty;
 
 public class Link extends Entity {
+    @SuppressWarnings("WeakerAccess")
     @ApiModelProperty(
         name = "rel",
         value = "Relation",
@@ -13,6 +14,7 @@ public class Link extends Entity {
     @JsonProperty(required = true, index = 1)
     public final String rel;
 
+    @SuppressWarnings("WeakerAccess")
     @ApiModelProperty(
         name = "href",
         value = "URL",

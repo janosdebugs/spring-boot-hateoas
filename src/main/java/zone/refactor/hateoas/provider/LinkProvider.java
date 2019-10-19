@@ -1,7 +1,7 @@
-package at.pasztor.hateoas.provider;
+package zone.refactor.hateoas.provider;
 
-import at.pasztor.hateoas.entity.LinkedEntity;
-import at.pasztor.hateoas.entity.PartialLink;
+import zone.refactor.hateoas.entity.LinkedEntity;
+import zone.refactor.hateoas.entity.PartialLink;
 
 /**
  * The link provider reads the configuration for entity-endpoint mappings and returns partial link objects for embedding.
