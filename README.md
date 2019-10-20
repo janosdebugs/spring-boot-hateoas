@@ -118,12 +118,16 @@ In this case you can have the annotation link provider can read the `@ListingEnd
 and provide you with the link objects to this endpoint as follows:
 
 ```java
-public Link getSingleLink(AnnotationLinkProvider linkProvider) {
-    return linkProvider.getResourcLink(BlogPost.class, "1")
-}
+import zone.refactor.hateoas.provider.AnnotationLinkProvider;
 
-public Link getListingLink(AnnotationLinkProvider linkProvider) {
-    return linkProvider.getResourceListLink(BlogPost.class)
+class MyLinks {
+    public Link getSingleLink(AnnotationLinkProvider linkProvider) {
+        return linkProvider.getResourcLink(BlogPost.class, "1");
+    }
+    
+    public Link getListingLink(AnnotationLinkProvider linkProvider) {
+        return linkProvider.getResourceListLink(BlogPost.class);
+    }
 }
 ```
 
