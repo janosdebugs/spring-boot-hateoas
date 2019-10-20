@@ -17,12 +17,12 @@ import java.util.List;
     "localizedMessage",
     "suppressed"
 })
-public class ExceptionEntity extends Exception implements zone.refactor.hateoas.contract.Entity {
+public class RuntimeExceptionEntity extends RuntimeException implements zone.refactor.hateoas.contract.Entity {
     @SuppressWarnings("DefaultAnnotationParam")
     @ApiModelProperty(required = true, position = 0)
     @JsonProperty(value = "@type", required = true, index = 0)
     public String getType() {
-        Class<? extends ExceptionEntity> currentClass = this.getClass();
+        Class<? extends RuntimeExceptionEntity> currentClass = this.getClass();
         ApiModelProperty annotation = currentClass.getAnnotation(ApiModelProperty.class);
         if (annotation != null) {
             annotation.name();

@@ -1,9 +1,26 @@
 package zone.refactor.hateoas.entity;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import io.swagger.annotations.ApiModelProperty;
 
-public class Link extends Entity {
+public class Link extends Entity implements zone.refactor.hateoas.contract.Link {
+    @SuppressWarnings("WeakerAccess")
+    @JsonIgnore
+    @ApiModelProperty(hidden = true)
+    public final String rel;
+
+    @SuppressWarnings("WeakerAccess")
+    @JsonIgnore
+    @ApiModelProperty(hidden = true)
+    public final String href;
+
+    public Link(String rel, String href) {
+        this.rel = rel;
+        this.href = href;
+    }
+
+    @Override
     @SuppressWarnings("WeakerAccess")
     @ApiModelProperty(
         name = "rel",
@@ -12,8 +29,11 @@ public class Link extends Entity {
         position = 1
     )
     @JsonProperty(required = true, index = 1)
-    public final String rel;
+    public String getRel() {
+        return rel;
+    }
 
+    @Override
     @SuppressWarnings("WeakerAccess")
     @ApiModelProperty(
         name = "href",
@@ -22,10 +42,7 @@ public class Link extends Entity {
         position = 2
     )
     @JsonProperty(required = true, index = 2)
-    public final String href;
-
-    public Link(String rel, String href) {
-        this.rel = rel;
-        this.href = href;
+    public String getHref() {
+        return href;
     }
 }

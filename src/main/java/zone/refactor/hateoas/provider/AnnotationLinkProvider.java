@@ -1,7 +1,8 @@
 package zone.refactor.hateoas.provider;
 
-import zone.refactor.hateoas.entity.LinkedEntity;
-import zone.refactor.hateoas.entity.PartialLink;
+import zone.refactor.hateoas.contract.LinkProvider;
+import zone.refactor.hateoas.contract.LinkedEntity;
+import zone.refactor.hateoas.contract.PartialLink;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.web.context.annotation.RequestScope;
@@ -35,7 +36,7 @@ public class AnnotationLinkProvider implements LinkProvider {
         }
 
         ParsedPath path = data.get(entityClass);
-        return new PartialLink(path.render(basePath, pathParameters));
+        return new zone.refactor.hateoas.entity.PartialLink(path.render(basePath, pathParameters));
     }
 
     @Override

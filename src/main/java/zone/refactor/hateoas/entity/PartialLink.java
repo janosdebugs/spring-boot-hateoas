@@ -1,6 +1,6 @@
 package zone.refactor.hateoas.entity;
 
-public class PartialLink {
+public class PartialLink implements zone.refactor.hateoas.contract.PartialLink {
     @SuppressWarnings("WeakerAccess")
     public final String href;
 
@@ -14,30 +14,5 @@ public class PartialLink {
             rel,
             href
         );
-    }
-
-    @SuppressWarnings("WeakerAccess")
-    public final Link withSelfRel() {
-        return withRel("self");
-    }
-
-    @SuppressWarnings("WeakerAccess")
-    public final Link withUpRel() {
-        return withRel("up");
-    }
-
-    @SuppressWarnings("WeakerAccess")
-    public final Link withNextRel() {
-        return withRel("next");
-    }
-
-    @SuppressWarnings("WeakerAccess")
-    public final Link withPrevRel() {
-        return withRel("prev");
-    }
-
-    @SuppressWarnings("WeakerAccess")
-    public final Link withSearchRel() {
-        return withRel("search");
     }
 }

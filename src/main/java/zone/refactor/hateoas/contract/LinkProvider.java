@@ -1,7 +1,4 @@
-package zone.refactor.hateoas.provider;
-
-import zone.refactor.hateoas.entity.LinkedEntity;
-import zone.refactor.hateoas.entity.PartialLink;
+package zone.refactor.hateoas.contract;
 
 /**
  * The link provider reads the configuration for entity-endpoint mappings and returns partial link objects for embedding.
