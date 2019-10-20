@@ -7,6 +7,23 @@
     <groupId>zone.refactor</groupId>
     <artifactId>hateoas</artifactId>
     <version>1.0-SNAPSHOT</version>
+    <packaging>jar</packaging>
+
+    <name>Refactor Zone HATEOAS for Spring Boot</name>
+    <description>A replacement library for the built-in HATEOAS implementation of Spring Boot</description>
+    <url>https://refactor.zone</url>
+
+    <licenses>
+        <license>
+            <name>The MIT License</name>
+            <url>https://opensource.org/licenses/MIT</url>
+            <distribution>repo</distribution>
+        </license>
+    </licenses>
+
+    <scm>
+        <url>https://github.com/refactorzone/spring-boot-hateoas</url>
+    </scm>
 
     <properties>
         <java.version>1.8</java.version>

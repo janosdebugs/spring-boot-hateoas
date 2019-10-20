@@ -122,7 +122,7 @@ import zone.refactor.hateoas.provider.AnnotationLinkProvider;
 
 class MyLinks {
     public Link getSingleLink(AnnotationLinkProvider linkProvider) {
-        return linkProvider.getResourcLink(BlogPost.class, "1");
+        return linkProvider.getResourcecLink(BlogPost.class, "1");
     }
     
     public Link getListingLink(AnnotationLinkProvider linkProvider) {
