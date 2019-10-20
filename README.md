@@ -13,7 +13,7 @@ This package can be installed from Maven Central:
 ```xml
 <dependencies>
     <dependency>
-        <groupId>zone.refactor</groupId>
+        <groupId>zone.refactor.spring</groupId>
         <artifactId>hateoas</artifactId>
     </dependency>
 </dependencies>
@@ -35,7 +35,7 @@ Next up is the `LinkedEntity` class. This class adds the `_links` field, which s
 to the current object, parent objects, etc. You could add a custom link class such as this:
 
 ```java
-import zone.refactor.hateoas.entity.Entity;
+import zone.refactor.spring.hateoas.entity.Entity;
 
 @SuppressWarnings("WeakerAccess")
 class BlogPostLinks extends Entity {
@@ -118,7 +118,7 @@ In this case you can have the annotation link provider can read the `@ListingEnd
 and provide you with the link objects to this endpoint as follows:
 
 ```java
-import zone.refactor.hateoas.provider.AnnotationLinkProvider;
+import zone.refactor.spring.hateoas.provider.AnnotationLinkProvider;
 
 class MyLinks {
     public Link getSingleLink(AnnotationLinkProvider linkProvider) {

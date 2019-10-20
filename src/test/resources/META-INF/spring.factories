@@ -1,2 +1,2 @@
 org.springframework.boot.autoconfigure.EnableAutoConfiguration=\
-zone.refactor.hateoas.config.RefactorZoneHateoasAutoConfiguration
+zone.refactor.spring.hateoas.config.RefactorZoneHateoasAutoConfiguration
