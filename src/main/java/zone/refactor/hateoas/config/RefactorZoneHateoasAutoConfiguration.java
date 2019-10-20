@@ -19,7 +19,8 @@ public class RefactorZoneHateoasAutoConfiguration {
     @Bean
     @ConditionalOnMissingBean
     AnnotationLinkParser annotationLinkParser(
-        @SuppressWarnings("SpringJavaInjectionPointsAutowiringInspection") RequestMappingHandlerMapping requestMappingHandlerMapping
+        @SuppressWarnings("SpringJavaInjectionPointsAutowiringInspection")
+            RequestMappingHandlerMapping requestMappingHandlerMapping
     ) {
         return new AnnotationLinkParser(requestMappingHandlerMapping);
     }
@@ -28,7 +29,8 @@ public class RefactorZoneHateoasAutoConfiguration {
     @ConditionalOnMissingBean
     @RequestScope
     LinkProvider linkProvider(
-        @SuppressWarnings("SpringJavaInjectionPointsAutowiringInspection") HttpServletRequest request,
+        @SuppressWarnings("SpringJavaInjectionPointsAutowiringInspection")
+            HttpServletRequest request,
         AnnotationLinkParser annotationLinkParser
     ) {
         return new AnnotationLinkProvider(request, annotationLinkParser);

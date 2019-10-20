@@ -10,6 +10,7 @@ import org.springframework.web.context.annotation.RequestScope;
 import javax.servlet.http.HttpServletRequest;
 import java.lang.reflect.Array;
 import java.util.Map;
+import java.util.Objects;
 
 @Service
 @RequestScope
@@ -22,6 +23,9 @@ public class AnnotationLinkProvider implements LinkProvider {
         HttpServletRequest request,
         AnnotationLinkParser annotationLinkParser
     ) {
+        Objects.requireNonNull(request, "No request object was passed. Is your injection configuration correct?");
+        Objects.requireNonNull(annotationLinkParser, "No annotation link parser was passed. Is your injection configuration correct?");
+
         this.annotationLinkParser = annotationLinkParser;
         String scheme = request.getScheme();
         String host = request.getServerName();
@@ -40,12 +44,12 @@ public class AnnotationLinkProvider implements LinkProvider {
     }
 
     @Override
-    public final <T extends LinkedEntity<?>> PartialLink getResourceListLink(Class<T> entityClass, String... pathParameters) {
+    public <T extends LinkedEntity<?>> PartialLink getResourceListLink(Class<T> entityClass, String... pathParameters) {
         return get(this.annotationLinkParser.listingPaths, entityClass, pathParameters);
     }
 
     @Override
-    public final <T extends LinkedEntity<?>> PartialLink getResourceLink(Class<T> entityClass, String id, String... pathParameters) {
+    public <T extends LinkedEntity<?>> PartialLink getResourceLink(Class<T> entityClass, String id, String... pathParameters) {
         String[] parameters = (String[]) Array.newInstance(String.class, pathParameters.length + 1);
         System.arraycopy(pathParameters, 0, parameters, 0, pathParameters.length);
         parameters[parameters.length - 1] = id;

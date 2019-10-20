@@ -12,7 +12,8 @@ public class EmbedingEntity<EMBEDTYPE extends zone.refactor.hateoas.contract.Ent
     @JsonIgnore
     public final EMBEDTYPE embedded;
 
-    public EmbedingEntity(LINKTYPE links, EMBEDTYPE embedded) {
+    @SuppressWarnings("WeakerAccess")
+    public EmbedingEntity(EMBEDTYPE embedded, LINKTYPE links) {
         super(links);
         this.embedded = embedded;
     }

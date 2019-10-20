@@ -1,17 +1,16 @@
 package zone.refactor.hateoas.provider;
 
-import zone.refactor.hateoas.annotation.EntityEndpoint;
-import zone.refactor.hateoas.annotation.ListingEndpoint;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.method.HandlerMethod;
 import org.springframework.web.servlet.mvc.method.RequestMappingInfo;
 import org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping;
+import zone.refactor.hateoas.annotation.EntityEndpoint;
+import zone.refactor.hateoas.annotation.ListingEndpoint;
 
 import java.lang.reflect.Method;
-import java.util.HashMap;
-import java.util.Map;
+import java.util.*;
 
 @Service
 public class AnnotationLinkParser {
@@ -22,6 +21,7 @@ public class AnnotationLinkParser {
     public AnnotationLinkParser(
         RequestMappingHandlerMapping requestMappingHandlerMapping
     ) {
+        Objects.requireNonNull(requestMappingHandlerMapping);
         Map<RequestMappingInfo, HandlerMethod> handlerMethods = requestMappingHandlerMapping.getHandlerMethods();
         for (Map.Entry<RequestMappingInfo, HandlerMethod> handlerMethod : handlerMethods.entrySet()) {
             Method method = handlerMethod.getValue().getMethod();
@@ -30,21 +30,35 @@ public class AnnotationLinkParser {
             RequestMapping requestMapping = method.getAnnotation(RequestMapping.class);
             RequestMapping classRequestMapping = method.getDeclaringClass().getAnnotation(RequestMapping.class);
 
-            String path = "";
-            if (classRequestMapping != null) {
-                path += classRequestMapping.value();
-            }
-            if (requestMapping != null) {
-                path += requestMapping.value();
+            List<String> paths = new ArrayList<>();
+            if (classRequestMapping != null && classRequestMapping.value().length > 0) {
+                for (String basePath : classRequestMapping.value()) {
+                    if (requestMapping != null && requestMapping.value().length > 0) {
+                        for (String path : requestMapping.value()) {
+                            paths.add(basePath + path);
+                        }
+                    } else {
+                        paths.add(basePath);
+                    }
+
+                }
+            } else {
+                if (requestMapping != null) {
+                    Collections.addAll(paths, requestMapping.value());
+                }
             }
 
             if (entityEndoint != null) {
                 Class<?> entityClass = entityEndoint.value();
-                resourcePaths.put(entityClass, new ParsedPath(path));
+                for (String path : paths) {
+                    resourcePaths.put(entityClass, new ParsedPath(path));
+                }
             }
             if (listingEndpoint != null) {
                 Class<?> entityClass = listingEndpoint.value();
-                listingPaths.put(entityClass, new ParsedPath(path));
+                for (String path : paths) {
+                    listingPaths.put(entityClass, new ParsedPath(path));
+                }
             }
         }
     }

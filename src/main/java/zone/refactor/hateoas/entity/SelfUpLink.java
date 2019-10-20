@@ -13,7 +13,8 @@ public class SelfUpLink extends SelfLink implements zone.refactor.hateoas.contra
     @ApiModelProperty(hidden = true)
     public final Link up;
 
-    public SelfUpLink(PartialLink self, PartialLink up) {
+    @SuppressWarnings("WeakerAccess")
+    public SelfUpLink(zone.refactor.hateoas.contract.PartialLink self, zone.refactor.hateoas.contract.PartialLink up) {
         super(self);
         this.up = up.withUpRel();
     }
