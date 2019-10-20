@@ -86,4 +86,45 @@ Simple as that!
 
 ### Setting up the link provider
 
-As mentioned above we provide a default link provider which reads annotations.
+As mentioned above we provide a default link provider which reads annotations. Let's say you have the following
+controller:
+
+```java
+@RestController
+@RequestMapping("/posts")
+class BlogController {
+    @ListingEndpoint(BlogPost.class)
+    @RequestMapping(
+        method = RequestMethod.GET
+    )
+    public List<BlogPost> list() {
+        //...
+    }
+    
+    @EntityEndpoint(BlogPost.class)
+    @RequestMapping(
+        value = "/{id}",
+        method = RequestMethod.GET
+    )
+    public BlogPost get(
+        String id
+    ) {
+        //...
+    }
+}
+```
+
+In this case you can have the annotation link provider can read the `@ListingEndpoint` and `@EntityEndpoint` annotations
+and provide you with the link objects to this endpoint as follows:
+
+```java
+public Link getSingleLink(AnnotationLinkProvider linkProvider) {
+    return linkProvider.getResourcLink(BlogPost.class, "1")
+}
+
+public Link getListingLink(AnnotationLinkProvider linkProvider) {
+    return linkProvider.getResourceListLink(BlogPost.class)
+}
+```
+
+If more parameters are required to construct the path, you can pass them as additional parameters to these methods.
