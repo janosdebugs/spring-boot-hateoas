@@ -1,6 +1,6 @@
 # A better HATEOAS implementation for Spring Boot
 
-[![CircleCI](https://circleci.com/gh/refactorzone/spring-boot-hateoas.svg?style=svg)](https://circleci.com/gh/refactorzone/spring-boot-hateoas)
+![CircleCI](https://img.shields.io/circleci/build/gh/refactorzone/spring-boot-hateoas)
 ![Maven Central](https://img.shields.io/maven-central/v/zone.refactor.spring/hateoas)
 ![GitHub tag (latest SemVer)](https://img.shields.io/github/v/tag/refactorzone/spring-boot-hateoas)
 ![GitHub last commit](https://img.shields.io/github/last-commit/refactorzone/spring-boot-hateoas)
