@@ -23,7 +23,7 @@
                 <activeByDefault>true</activeByDefault>
             </activation>
             <properties>
-                <gpg.keyname>CC4539BEAA465BC0</gpg.keyname>
+                <gpg.keyname>3DF1D5BD</gpg.keyname>
             </properties>
         </profile>
         <profile>
