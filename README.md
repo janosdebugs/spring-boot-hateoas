@@ -1,9 +1,14 @@
 # A better HATEOAS implementation for Spring Boot
 
-![CircleCI](https://img.shields.io/circleci/build/gh/refactorzone/spring-boot-hateoas)
-![Maven Central](https://img.shields.io/maven-central/v/zone.refactor.spring/hateoas)
-![GitHub tag (latest SemVer)](https://img.shields.io/github/v/tag/refactorzone/spring-boot-hateoas)
-![GitHub last commit](https://img.shields.io/github/last-commit/refactorzone/spring-boot-hateoas)
+[![CircleCI](https://img.shields.io/circleci/build/gh/refactorzone/spring-boot-hateoas)](https://circleci.com/gh/refactorzone/spring-boot-hateoas)
+[![Maven Central](https://img.shields.io/maven-central/v/zone.refactor.spring/hateoas)](https://search.maven.org/search?q=g:zone.refactor.spring%20AND%20a:hateoas)
+[![Code Quality](https://img.shields.io/lgtm/grade/java/g/refactorzone/spring-boot-hateoas.svg)](https://lgtm.com/projects/g/refactorzone/spring-boot-hateoas/)
+[![GitHub last commit](https://img.shields.io/github/last-commit/refactorzone/spring-boot-hateoas)](https://github.com/refactorzone/spring-boot-hateoas)
+[![GitHub top language](https://img.shields.io/github/languages/top/refactorzone/spring-boot-hateoas.svg)](https://github.com/refactorzone/spring-boot-hateoas)
+[![GitHub repo size](https://img.shields.io/github/repo-size/refactorzone/spring-boot-hateoas.svg)](https://github.com/refactorzone/spring-boot-hateoas)
+[![GitHub issues](https://img.shields.io/github/issues/refactorzone/spring-boot-hateoas.svg)](https://github.com/refactorzone/spring-boot-hateoas/issues)
+[![GitHub pull requests](https://img.shields.io/github/issues-pr/refactorzone/spring-boot-hateoas.svg)](https://github.com/refactorzone/spring-boot-hateoas/pulls)
+[![GitHub stars](https://img.shields.io/github/stars/refactorzone/spring-boot-hateoas.svg?style=social)](https://github.com/refactorzone/spring-boot-hateoas)
 
 
 This library was born out of my frustration with the, admittedly very generic, [HATEOAS/HAL implementation of
