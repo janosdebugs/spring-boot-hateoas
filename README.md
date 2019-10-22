@@ -8,7 +8,7 @@
 [![GitHub repo size](https://img.shields.io/github/repo-size/refactorzone/spring-boot-hateoas.svg)](https://github.com/refactorzone/spring-boot-hateoas)
 [![GitHub issues](https://img.shields.io/github/issues/refactorzone/spring-boot-hateoas.svg)](https://github.com/refactorzone/spring-boot-hateoas/issues)
 [![GitHub pull requests](https://img.shields.io/github/issues-pr/refactorzone/spring-boot-hateoas.svg)](https://github.com/refactorzone/spring-boot-hateoas/pulls)
-[![GitHub stars](https://img.shields.io/github/stars/refactorzone/spring-boot-hateoas.svg?style=social)](https://github.com/refactorzone/spring-boot-hateoas)
+[![GitHub](https://img.shields.io/github/license/refactorzone/spring-boot-hateoas)](https://github.com/refactorzone/spring-boot-hateoas/blob/master/LICENSE.md)
 
 This library was born out of my frustration with the, admittedly very generic, [HATEOAS/HAL implementation of
 Spring Boot](https://spring.io/projects/spring-hateoas).
