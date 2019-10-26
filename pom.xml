@@ -21,6 +21,19 @@
         </license>
     </licenses>
 
+    <developers>
+        <developer>
+            <id>janoszen</id>
+            <name>Janos Pasztor</name>
+            <url>https://pasztor.at</url>
+        </developer>
+    </developers>
+
+    <issueManagement>
+        <system>GitHub</system>
+        <url>https://github.com/refactorzone/spring-boot-hateoas/issues</url>
+    </issueManagement>
+
     <scm>
         <url>https://github.com/refactorzone/spring-boot-hateoas</url>
     </scm>
