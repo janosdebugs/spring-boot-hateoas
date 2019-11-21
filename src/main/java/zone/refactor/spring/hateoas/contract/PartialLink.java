@@ -1,6 +1,8 @@
 package zone.refactor.spring.hateoas.contract;
 
 public interface PartialLink {
+    PartialLink withHref(String href);
+    String getHref();
     Link withRel(String rel);
     default Link withSelfRel() {
         return withRel("self");
