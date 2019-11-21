@@ -1,5 +1,7 @@
 package zone.refactor.spring.hateoas.annotation;
 
+import zone.refactor.spring.hateoas.contract.Entity;
+
 import java.lang.annotation.*;
 
 /**
@@ -10,5 +12,5 @@ import java.lang.annotation.*;
 @Retention(RetentionPolicy.RUNTIME)
 @Documented
 public @interface ListingEndpoint {
-    Class<?> value();
+    Class<? extends Entity> value();
 }
