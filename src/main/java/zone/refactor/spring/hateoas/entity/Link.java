@@ -45,4 +45,11 @@ public class Link extends Entity implements zone.refactor.spring.hateoas.contrac
     public String getHref() {
         return href;
     }
+
+    public Link withHref(String href) {
+        return new Link(
+            rel,
+            href
+        );
+    }
 }

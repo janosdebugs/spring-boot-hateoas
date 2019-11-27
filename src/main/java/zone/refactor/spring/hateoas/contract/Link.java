@@ -23,4 +23,6 @@ public interface Link extends Entity {
     )
     @JsonProperty(required = true, index = 2)
     String getHref();
+
+    Link withHref(String href);
 }
