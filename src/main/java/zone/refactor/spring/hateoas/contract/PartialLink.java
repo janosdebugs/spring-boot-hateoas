@@ -8,7 +8,7 @@ package zone.refactor.spring.hateoas.contract;
 public interface PartialLink {
     /**
      * This method lets you create a copy of the current object with a modified `href=`. This is useful for modifying
-     * the original link obtained from {@see getHref()}.
+     * the original link obtained from {@see #getHref}.
      *
      * @param href the modified `href=` attribute
      *
