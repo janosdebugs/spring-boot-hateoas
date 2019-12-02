@@ -2,13 +2,13 @@ package zone.refactor.spring.hateoas.contract;
 
 /**
  * A partially complete link is a link without it's `rel=` attribute set. Once the `rel=` is set it becomes a
- * {@see zone.refactor.spring.hateoas.contract.Link} entity. This is useful to split the responsibility of setting the
+ * {@link zone.refactor.spring.hateoas.contract.Link} entity. This is useful to split the responsibility of setting the
  * `rel=` attribute from actually generating the link.
  */
 public interface PartialLink {
     /**
      * This method lets you create a copy of the current object with a modified `href=`. This is useful for modifying
-     * the original link obtained from {@see #getHref}.
+     * the original link obtained from {@link #getHref}.
      *
      * @param href the modified `href=` attribute
      *
