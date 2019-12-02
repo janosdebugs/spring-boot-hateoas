@@ -142,3 +142,37 @@ class MyLinks {
 ```
 
 If more parameters are required to construct the path, you can pass them as additional parameters to these methods.
+
+## Contracts provided
+
+This library provides a number of interfaces as contracts:
+
+|-----|-----|
+| [`Entity`](src/main/java/zone/refactor/spring/hateoas/contract/Entity.java) | A simple entity with only the `@type` field attached to signal its type. |
+| [`LinkedEntity`](src/main/java/zone/refactor/spring/hateoas/contract/LinkedEntity.java) | An `Entity` that also has links attached in `_links`. |
+| [`EmbeddingEntity`](src/main/java/zone/refactor/spring/hateoas/contract/EmbeddingEntity.java) | An entity that has one or more embedded objects that will be returned in the `_embedded` field. Also, a `LinkedEntity`. |
+| [`Link`](src/main/java/zone/refactor/spring/hateoas/contract/Link.java) | A link to a different resource. |
+| [`LinkProvider`](src/main/java/zone/refactor/spring/hateoas/contract/LinkProvider.java) | An API to generate links for a certain resource. |
+| [`PartialLink`](src/main/java/zone/refactor/spring/hateoas/contract/PartialLink.java) | A link without its `rel=` attribute set, returned from a `LinkProvider`. Provides APIs to generate full links. |
+| [`SelfLink`](src/main/java/zone/refactor/spring/hateoas/contract/SelfLink.java) | An object that can be used inside a `LinkedEntity` and provides one link with the `self` rel. |
+| [`SelfUpLink`](src/main/java/zone/refactor/spring/hateoas/contract/SelfUpLink.java) | An object that can be used inside a `LinkedEntity` and provides link with the `self` and `up` rels. |
+
+## Entities provided
+
+|-----|-----|
+| [`Entity`](src/main/java/zone/refactor/spring/hateoas/entity/Entity.java) | An implementation of the `Entity` contract. |
+| [`LinkedEntity`](src/main/java/zone/refactor/spring/hateoas/entity/LinkedEntity.java) | An implementation of the `LinkedEntity` contract. |
+| [`EmbeddingEntity`](src/main/java/zone/refactor/spring/hateoas/entity/EmbeddingEntity.java) | An implementation of the `EmbeddingEntity` contract. |
+| [`Link`](src/main/java/zone/refactor/spring/hateoas/entity/Link.java) | An implementation of the `Link` contract. |
+| [`PartialLink`](src/main/java/zone/refactor/spring/hateoas/entity/PartialLink.java) | An implementation of the `PartialLink` contract. |
+| [`SelfLink`](src/main/java/zone/refactor/spring/hateoas/entity/SelfLink.java) | An implementation of the `SelfLink` contract |
+| [`SelfUpLink`](src/main/java/zone/refactor/spring/hateoas/entity/SelfUpLink.java) | An implementation of the `SelfUpLink` contract. |
+| [`ExceptionEntity`](src/main/java/zone/refactor/spring/hateoas/entity/ExceptionEntity.java) | An abstract exception class that hides the usual exception fields from the JSON output. |
+| [`RuntimeExceptionEntity`](src/main/java/zone/refactor/spring/hateoas/entity/RuntimeExceptionEntity.java) | An abstract runtime exception class that hides the usual exception fields from the JSON output. |
+
+
+## Controllers provided
+
+For easier error handling in an API we also provide the
+[`ErrorController`](src/main/java/zone/refactor/spring/hateoas/controller/ErrorController.java), which automatically
+takes any subclasses of `ExceptionEntity` and `RuntimeExceptionEntity` and turns them into valid HTTP responses.  
