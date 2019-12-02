@@ -150,6 +150,7 @@ If more parameters are required to construct the path, you can pass them as addi
 
 This library provides a number of interfaces as contracts:
 
+|     |     |
 |-----|-----|
 | [`Entity`](src/main/java/zone/refactor/spring/hateoas/contract/Entity.java) | A simple entity with only the `@type` field attached to signal its type. |
 | [`LinkedEntity`](src/main/java/zone/refactor/spring/hateoas/contract/LinkedEntity.java) | An `Entity` that also has links attached in `_links`. |
@@ -162,6 +163,7 @@ This library provides a number of interfaces as contracts:
 
 ## Entities provided
 
+|     |     |
 |-----|-----|
 | [`Entity`](src/main/java/zone/refactor/spring/hateoas/entity/Entity.java) | An implementation of the `Entity` contract. |
 | [`LinkedEntity`](src/main/java/zone/refactor/spring/hateoas/entity/LinkedEntity.java) | An implementation of the `LinkedEntity` contract. |
