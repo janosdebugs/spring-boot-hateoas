@@ -79,6 +79,9 @@ class BlogPostLinks extends Entity {
 As you can see the `PartialLink` class gives you the ability to define the `rel` field as needed right where it is used,
 reducing the visual clutter in other parts of your code.
 
+> **Hint:** You can inherit from `SelfLinks` or `SelfUpLinks`, or even use them directly to avoid code duplication at
+> the cost of binding yourself to this library.
+
 Now you can use this `BlogPostLinks` class in your `BlogPost` entity:
 
 ```java
