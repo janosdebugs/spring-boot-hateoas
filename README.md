@@ -16,6 +16,9 @@ Spring Boot](https://spring.io/projects/spring-hateoas).
 This library completely replaces the HATEOAS library of Spring Boot and can be used as a replacement, or as a 
 transition package as well.
 
+> **Beta software!** This software is still in beta and the API may change! It is strongly recommended that you pin
+it to a specific version unless you are willing to update the changes as the code evolves!
+
 ## Installation
 
 This package can be installed from Maven Central:
