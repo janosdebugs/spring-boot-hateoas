@@ -34,36 +34,49 @@ public class RuntimeExceptionEntity extends RuntimeException implements zone.ref
     }
 
     //region Hide fields from Swagger and JSON
+    @SuppressWarnings("unused")
     @ApiModelProperty(
         hidden = true
     )
     @JsonIgnore
     private      String                        detailMessage;
+
+    @SuppressWarnings("unused")
     @ApiModelProperty(
         hidden = true
     )
     @JsonIgnore
     private      String                        localizedMessage;
+
+    @SuppressWarnings("unused")
     @ApiModelProperty(
         hidden = true
     )
     @JsonIgnore
     private      String                        message;
+
+    @SuppressWarnings("unused")
     @ApiModelProperty(
         hidden = true
     )
     @JsonIgnore
     private      Throwable                     cause;
+
+    @SuppressWarnings("unused")
     @ApiModelProperty(
         hidden = true
     )
     @JsonIgnore
     private      StackTraceElement[]           stackTrace;
+
+    @SuppressWarnings("unused")
     @ApiModelProperty(
         hidden = true
     )
     @JsonIgnore
     private List<Throwable> suppressedExceptions;
+
+    @SuppressWarnings("unused")
     @ApiModelProperty(
         hidden = true
     )

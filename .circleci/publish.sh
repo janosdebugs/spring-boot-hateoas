@@ -2,6 +2,21 @@
 
 set -e
 
+if [[ -z ${GPG_PUBLIC_KEY} ]]; then
+    echo "Error: GPG_PUBLIC_KEY is unset!" >&2
+    exit 1;
+fi
+
+if [[ -z ${GPG_PRIVATE_KEY} ]]; then
+    echo "Error: GPG_PRIVATE_KEY is unset!" >&2
+    exit 1;
+fi
+
+if [[ -z ${GPG_PASSPHRASE} ]]; then
+    echo "Error: GPG_PASSPHRASE is unset!" >&2
+    exit 1;
+fi
+
 echo '-----BEGIN PGP PUBLIC KEY BLOCK-----
 Version: GnuPG v2
 ' >public.asc

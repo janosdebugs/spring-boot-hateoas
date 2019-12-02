@@ -20,5 +20,6 @@ If you received a stack trace, please paste the stack trace.
 ## pom.xml/build.gradle/etc
 
 ```xml
-Please paste your pom.xml/build.gradle/etc
+<!-- Please paste your pom.xml/build.gradle/etc -->
+<project />
 ```

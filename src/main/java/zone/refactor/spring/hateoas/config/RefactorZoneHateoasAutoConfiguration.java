@@ -6,9 +6,9 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.web.context.annotation.RequestScope;
 import org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping;
+import zone.refactor.spring.hateoas.contract.LinkProvider;
 import zone.refactor.spring.hateoas.provider.AnnotationLinkParser;
 import zone.refactor.spring.hateoas.provider.AnnotationLinkProvider;
-import zone.refactor.spring.hateoas.contract.LinkProvider;
 
 import javax.servlet.http.HttpServletRequest;
 

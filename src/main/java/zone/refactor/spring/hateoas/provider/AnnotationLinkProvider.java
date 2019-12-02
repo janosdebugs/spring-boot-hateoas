@@ -1,14 +1,13 @@
 package zone.refactor.spring.hateoas.provider;
 
-import zone.refactor.spring.hateoas.contract.LinkProvider;
-import zone.refactor.spring.hateoas.contract.LinkedEntity;
-import zone.refactor.spring.hateoas.contract.PartialLink;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.web.context.annotation.RequestScope;
+import zone.refactor.spring.hateoas.contract.LinkProvider;
+import zone.refactor.spring.hateoas.contract.LinkedEntity;
+import zone.refactor.spring.hateoas.contract.PartialLink;
 
 import javax.servlet.http.HttpServletRequest;
-import java.lang.reflect.Array;
 import java.util.Map;
 import java.util.Objects;
 
@@ -49,10 +48,7 @@ public class AnnotationLinkProvider implements LinkProvider {
     }
 
     @Override
-    public <T extends LinkedEntity<?>> PartialLink getResourceLink(Class<T> entityClass, String id, String... pathParameters) {
-        String[] parameters = (String[]) Array.newInstance(String.class, pathParameters.length + 1);
-        System.arraycopy(pathParameters, 0, parameters, 0, pathParameters.length);
-        parameters[parameters.length - 1] = id;
-        return get(this.annotationLinkParser.resourcePaths, entityClass, parameters);
+    public <T extends LinkedEntity<?>> PartialLink getResourceLink(Class<T> entityClass, String... pathParameters) {
+        return get(this.annotationLinkParser.resourcePaths, entityClass, pathParameters);
     }
 }

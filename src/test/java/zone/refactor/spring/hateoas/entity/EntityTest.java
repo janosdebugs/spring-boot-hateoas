@@ -12,6 +12,7 @@ public class EntityTest {
         assertEquals("Test", entity.getType());
     }
 
+    @SuppressWarnings({"WeakerAccess"})
     @ApiModel("Test")
     public static class TestEntity extends Entity {
 

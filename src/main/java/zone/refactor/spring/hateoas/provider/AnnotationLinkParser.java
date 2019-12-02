@@ -25,7 +25,7 @@ public class AnnotationLinkParser {
         Map<RequestMappingInfo, HandlerMethod> handlerMethods = requestMappingHandlerMapping.getHandlerMethods();
         for (Map.Entry<RequestMappingInfo, HandlerMethod> handlerMethod : handlerMethods.entrySet()) {
             Method method = handlerMethod.getValue().getMethod();
-            EntityEndpoint entityEndoint = method.getAnnotation(EntityEndpoint.class);
+            EntityEndpoint entityEndpoint = method.getAnnotation(EntityEndpoint.class);
             ListingEndpoint listingEndpoint = method.getAnnotation(ListingEndpoint.class);
             RequestMapping requestMapping = method.getAnnotation(RequestMapping.class);
             RequestMapping classRequestMapping = method.getDeclaringClass().getAnnotation(RequestMapping.class);
@@ -48,8 +48,8 @@ public class AnnotationLinkParser {
                 }
             }
 
-            if (entityEndoint != null) {
-                Class<?> entityClass = entityEndoint.value();
+            if (entityEndpoint != null) {
+                Class<?> entityClass = entityEndpoint.value();
                 for (String path : paths) {
                     resourcePaths.put(entityClass, new ParsedPath(path));
                 }

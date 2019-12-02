@@ -24,5 +24,6 @@ public interface Link extends Entity {
     @JsonProperty(required = true, index = 2)
     String getHref();
 
+    @SuppressWarnings("unused")
     Link withHref(String href);
 }

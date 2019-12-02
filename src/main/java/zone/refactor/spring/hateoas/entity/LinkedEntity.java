@@ -6,26 +6,27 @@ import io.swagger.annotations.ApiModelProperty;
 
 /**
  *
- * @param <LINKTYPE> the object embedded as a list of links. The links should each be indexed with their relation in
+ * @param <LINK_TYPE> the object embedded as a list of links. The links should each be indexed with their relation in
  *                  the embedding object.
  */
-public class LinkedEntity<LINKTYPE extends zone.refactor.spring.hateoas.contract.Entity>
+public class LinkedEntity<LINK_TYPE extends zone.refactor.spring.hateoas.contract.Entity>
     extends Entity
-    implements zone.refactor.spring.hateoas.contract.LinkedEntity<LINKTYPE>
+    implements zone.refactor.spring.hateoas.contract.LinkedEntity<LINK_TYPE>
 {
     @SuppressWarnings("WeakerAccess")
     @JsonIgnore
     @ApiModelProperty(hidden = true)
-    public final LINKTYPE links;
+    public final LINK_TYPE links;
 
-    public LinkedEntity(LINKTYPE links) {
+    @SuppressWarnings({"WeakerAccess"})
+    public LinkedEntity(LINK_TYPE links) {
         this.links = links;
     }
 
     @Override
     @ApiModelProperty(name = "_links", required = true, position = 999)
     @JsonProperty(value = "_links", required = true, index = 999)
-    public LINKTYPE getLinks() {
+    public LINK_TYPE getLinks() {
         return links;
     }
 }
