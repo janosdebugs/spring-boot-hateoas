@@ -1,6 +1,5 @@
 package zone.refactor.spring.hateoas.controller;
 
-import io.swagger.annotations.ApiParam;
 import io.swagger.annotations.ResponseHeader;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -15,10 +14,13 @@ import org.springframework.web.bind.annotation.ResponseStatus;
 import zone.refactor.spring.hateoas.entity.ExceptionEntity;
 import zone.refactor.spring.hateoas.entity.RuntimeExceptionEntity;
 
-import java.lang.reflect.Field;
 import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
 import java.lang.reflect.Modifier;
+import java.util.Collections;
+import java.util.List;
+import java.util.Map;
+import java.util.stream.Collectors;
 
 @Controller
 @ControllerAdvice
@@ -78,16 +80,49 @@ public class ErrorController {
     private MultiValueMap<String, String> getHeaders(Object entity) {
         MultiValueMap<String, String> headers = new LinkedMultiValueMap<>();
 
-        for (Field field : entity.getClass().getFields()) {
-            ResponseHeader responseHeader = field.getAnnotation(ResponseHeader.class);
-            ApiParam apiParam = field.getAnnotation(ApiParam.class);
-            //todo implement
-        }
-
         for (Method method : entity.getClass().getMethods()) {
             ResponseHeader responseHeader = method.getAnnotation(ResponseHeader.class);
-            ApiParam apiParam = method.getAnnotation(ApiParam.class);
-            //todo implement
+            if (responseHeader == null) {
+                continue;
+            }
+            String headerName = responseHeader.name();
+            if (headerName.isEmpty()) {
+                headerName = method.getName();
+            }
+            if (!Modifier.isPublic(method.getModifiers())) {
+                logger.warn("Cannot fetch header from method " + method + " because it is not public.");
+                continue;
+            }
+            if (method.getParameters().length != 0) {
+                logger.warn("Cannot fetch header from method " + method + " because it has parameters.");
+                continue;
+            }
+            Object value;
+            try {
+                if (Modifier.isStatic(method.getModifiers())) {
+                    value = method.invoke(null);
+                } else {
+                    value = method.invoke(entity);
+                }
+            } catch (IllegalAccessException e) {
+                //Should never happen since we checked.
+                throw new RuntimeException(e);
+            } catch (InvocationTargetException e) {
+                logger.warn("Cannot fetch header from method " + method + " because it threw an exception.", e.getCause());
+                continue;
+            }
+            if (Map.class.isAssignableFrom(method.getReturnType())) {
+                //Assume a set of headers
+                //noinspection unchecked
+                headers.putAll((Map<? extends String, ? extends List<String>>) value);
+            } else if (List.class.isAssignableFrom(method.getReturnType())) {
+                //Assume list of values
+                //noinspection unchecked
+                headers.put(headerName, (List<String>) ((List)value).stream().map(Object::toString).collect(Collectors.toList()));
+            } else {
+                //Assume a single value
+                headers.put(headerName, Collections.singletonList(value.toString()));
+            }
         }
 
         return headers;

@@ -13,9 +13,7 @@ import zone.refactor.spring.hateoas.controller.BlogPostController;
 
 import static org.hamcrest.Matchers.*;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
-import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.content;
-import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.jsonPath;
-import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
+import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.*;
 
 @RunWith(SpringRunner.class)
 @WebMvcTest(BlogPostController.class)
@@ -51,6 +49,9 @@ public class FullStackTest {
         mvc
             .perform(get("/posts/3"))
             .andExpect(status().is4xxClientError())
+            .andExpect(
+                header().string("X-Response-Type", is("NotFoundException"))
+            )
             .andExpect(
                 content()
                     .contentTypeCompatibleWith(MediaType.APPLICATION_JSON)

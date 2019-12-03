@@ -3,6 +3,7 @@
 [![CircleCI](https://img.shields.io/circleci/build/gh/refactorzone/spring-boot-hateoas)](https://circleci.com/gh/refactorzone/spring-boot-hateoas)
 [![Maven Central](https://img.shields.io/maven-central/v/zone.refactor.spring/hateoas)](https://search.maven.org/search?q=g:zone.refactor.spring%20AND%20a:hateoas)
 [![Code Quality](https://img.shields.io/lgtm/grade/java/g/refactorzone/spring-boot-hateoas.svg)](https://lgtm.com/projects/g/refactorzone/spring-boot-hateoas/)
+[![JavaDoc](https://javadoc.io/badge2/zone.refactor.spring/hateoas/javadoc.svg)](https://javadoc.io/doc/zone.refactor.spring/hateoas)
 [![GitHub last commit](https://img.shields.io/github/last-commit/refactorzone/spring-boot-hateoas)](https://github.com/refactorzone/spring-boot-hateoas)
 [![GitHub top language](https://img.shields.io/github/languages/top/refactorzone/spring-boot-hateoas.svg)](https://github.com/refactorzone/spring-boot-hateoas)
 [![GitHub repo size](https://img.shields.io/github/repo-size/refactorzone/spring-boot-hateoas.svg)](https://github.com/refactorzone/spring-boot-hateoas)
