@@ -93,6 +93,10 @@ public class ErrorController {
                 logger.warn("Cannot fetch header from " + entity.getClass().getSimpleName() + "#" + method + "() because it is not public.");
                 continue;
             }
+            if (Modifier.isAbstract(method.getModifiers())) {
+                logger.warn("Cannot fetch header from " + entity.getClass().getSimpleName() + "#" + method + "() because it is abstract.");
+                continue;
+            }
             if (method.getParameters().length != 0) {
                 logger.warn("Cannot fetch header from " + entity.getClass().getSimpleName() + "#" + method + "() because it has parameters.");
                 continue;
