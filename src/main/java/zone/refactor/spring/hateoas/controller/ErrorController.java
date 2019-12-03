@@ -38,11 +38,11 @@ public class ErrorController {
             statusAnnotation = method.getAnnotation(ResponseStatus.class);
             if (statusAnnotation != null) {
                 if (method.getParameters().length > 0) {
-                    logger.warn("Cannot fetch HTTP status from " + entity.getClass().getSimpleName() + "." + method.getName() + "() because it has more than one parameter.");
+                    logger.warn("Cannot fetch HTTP status from " + entity.getClass().getSimpleName() + "#" + method.getName() + "() because it has more than one parameter.");
                 } else if (!Modifier.isPublic(method.getModifiers())) {
-                    logger.warn("Cannot fetch HTTP status from " + entity.getClass().getSimpleName() + "." + method.getName() + "() because it is not public.");
+                    logger.warn("Cannot fetch HTTP status from " + entity.getClass().getSimpleName() + "#" + method.getName() + "() because it is not public.");
                 } else if (Modifier.isAbstract(method.getModifiers())) {
-                    logger.warn("Cannot fetch HTTP status from " + entity.getClass().getSimpleName() + "." + method.getName() + "() because it is abstract.");
+                    logger.warn("Cannot fetch HTTP status from " + entity.getClass().getSimpleName() + "#" + method.getName() + "() because it is abstract.");
                 } else {
                     try {
                         Object methodResponse;
@@ -52,7 +52,7 @@ public class ErrorController {
                             methodResponse = method.invoke(entity);
                         }
                         if (methodResponse == null) {
-                            logger.warn("Cannot fetch HTTP status from " + entity.getClass().getSimpleName() + "." + method.getName() + "() because it returned null.");
+                            logger.warn("Cannot fetch HTTP status from " + entity.getClass().getSimpleName() + "#" + method.getName() + "() because it returned null.");
                         } else if (int.class.isAssignableFrom(methodResponse.getClass())) {
                             status = HttpStatus.valueOf((int) methodResponse);
                         } else if (Integer.class.isAssignableFrom(methodResponse.getClass())) {
@@ -64,12 +64,12 @@ public class ErrorController {
                         } else if (HttpStatus.class.isAssignableFrom(methodResponse.getClass())) {
                             status = (HttpStatus) methodResponse;
                         } else {
-                            logger.warn("Cannot fetch HTTP status from " + entity.getClass().getSimpleName() + "." + method.getName() + "() because it returned an unsupported type: " + methodResponse.getClass().getSimpleName());
+                            logger.warn("Cannot fetch HTTP status from " + entity.getClass().getSimpleName() + "#" + method.getName() + "() because it returned an unsupported type: " + methodResponse.getClass().getSimpleName());
                         }
                     } catch (IllegalAccessException e) {
-                        logger.warn("Cannot fetch HTTP status from " + entity.getClass().getSimpleName() + "." + method.getName() + "() because it threw an IllegalAccessException.", e);
+                        logger.warn("Cannot fetch HTTP status from " + entity.getClass().getSimpleName() + "#" + method.getName() + "() because it threw an IllegalAccessException.", e);
                     } catch (InvocationTargetException e) {
-                        logger.warn("Cannot fetch HTTP status from " + entity.getClass().getSimpleName() + "." + method.getName() + "() because it threw an exception.", e.getCause());
+                        logger.warn("Cannot fetch HTTP status from " + entity.getClass().getSimpleName() + "#" + method.getName() + "() because it threw an exception.", e.getCause());
                     }
                 }
             }
@@ -90,11 +90,11 @@ public class ErrorController {
                 headerName = method.getName();
             }
             if (!Modifier.isPublic(method.getModifiers())) {
-                logger.warn("Cannot fetch header from method " + method + " because it is not public.");
+                logger.warn("Cannot fetch header from " + entity.getClass().getSimpleName() + "#" + method + "() because it is not public.");
                 continue;
             }
             if (method.getParameters().length != 0) {
-                logger.warn("Cannot fetch header from method " + method + " because it has parameters.");
+                logger.warn("Cannot fetch header from " + entity.getClass().getSimpleName() + "#" + method + "() because it has parameters.");
                 continue;
             }
             Object value;
@@ -108,7 +108,7 @@ public class ErrorController {
                 //Should never happen since we checked.
                 throw new RuntimeException(e);
             } catch (InvocationTargetException e) {
-                logger.warn("Cannot fetch header from method " + method + " because it threw an exception.", e.getCause());
+                logger.warn("Cannot fetch header from " + entity.getClass().getSimpleName() + "#" + method + "() because it threw an exception.", e.getCause());
                 continue;
             }
             if (Map.class.isAssignableFrom(method.getReturnType())) {
